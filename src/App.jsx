@@ -199,7 +199,7 @@ const App = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const getBotResponse =  async (userMessage) => {
+  const getBotResponse = (userMessage) => {
     const lowerCaseMessage = userMessage.toLowerCase();
 
     for (const item of mentalHealthResponses) {
@@ -211,7 +211,7 @@ const App = () => {
     return "I'm here to discuss mental health topics. Could you please rephrase your question or ask about a specific mental health concern?";
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
@@ -224,7 +224,7 @@ const App = () => {
       const response = getBotResponse(input);
       setMessages((prev) => [...prev, { text: response, isUser: false }]);
       setIsLoading(false);
-    }, 5000);
+    }, 500);
   };
 
   return (
